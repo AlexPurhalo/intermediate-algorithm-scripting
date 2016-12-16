@@ -12,26 +12,12 @@ function whatIsInAName(collection, source) {
 
 	for(var i = 0; i < collection.length; i++) {
 		var collKeys = Object.keys(collection[i]);
-
 		for(var k = 0; k < collKeys.length; k++) {
-
-
-
 			for(var n = 0; n < srcKeys.length; n++) {
-				console.log('COLLECTION:');
-				console.log(collection[i]);
-				console.log('SOURCE');
-				console.log(source);
-				console.log('objKey: ' + collKeys[k] + ', srcKey: ' + srcKeys[n]);
-				console.log('objVal: ' + collection[i][collKeys[k]] + ', srcVal: ' + source[srcKeys[n]]);
-				console.log('');
-
 				if (collKeys[k] === srcKeys[n] && collection[i][collKeys[k]] === source[srcKeys[n]]) {
-					console.log('yeas');
 					searchResult.push(collection[i])
 				}
 			}
-			console.log('-------------')
 		}
 
 		if (srcKeys.length <= searchResult.length) {
@@ -40,7 +26,6 @@ function whatIsInAName(collection, source) {
 		searchResult = [];
 	}
 
-	console.log(result);
 	return result
 }
 
