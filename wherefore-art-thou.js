@@ -6,55 +6,60 @@
 // from the collection if it is to be included in the returned array.
 
 function whatIsInAName(collection, source) {
-	console.log('COLLECTION:');
-	console.log(collection);
-	console.log('SOURCE:');
-	console.log(source);
-	console.log('');
-
 	var searchResult = [];
 	var srcKeys = Object.keys(source);
 	var result = [];
-	// shows the keys of source array
 
 	for(var i = 0; i < collection.length; i++) {
-		console.log('obj' + i);
-		console.log(collection[i]);
+		var collKeys = Object.keys(collection[i]);
 
-		var collectionObjKeys = Object.keys(collection[i]);
+		for(var k = 0; k < collKeys.length; k++) {
 
-		console.log(collectionObjKeys);
 
-		for(var j = 0; j < collectionObjKeys.length; j++) {
-			console.log(
-				"key " + [collectionObjKeys[j]] + ", val: " + collection[i][collectionObjKeys[j]]
-			);
 
-			console.log('');
-			searchResult.push(collection[i]);
-			console.log('');
+			for(var n = 0; n < srcKeys.length; n++) {
+				console.log('COLLECTION:');
+				console.log(collection[i]);
+				console.log('SOURCE');
+				console.log(source);
+				console.log('objKey: ' + collKeys[k] + ', srcKey: ' + srcKeys[n]);
+				console.log('objVal: ' + collection[i][collKeys[k]] + ', srcVal: ' + source[srcKeys[n]]);
+				console.log('');
+
+				if (collKeys[k] === srcKeys[n] && collection[i][collKeys[k]] === source[srcKeys[n]]) {
+					console.log('yeas');
+					searchResult.push(collection[i])
+				}
+			}
+			console.log('-------------')
 		}
-		console.log("src.len: " + srcKeys.length + ", searchRes.len: " + searchResult.length);
+
 		if (srcKeys.length <= searchResult.length) {
-			console.log('');
-			console.log('result << ' );
-			console.log(searchResult[0]);
 			result.push(searchResult[0]);
-			console.log('');
-			console.log("result now:");
-			console.log(result);
 		}
-
 		searchResult = [];
-		console.log('---------------');
-		console.log('')
 	}
 
-	console.log('RESULT:');
 	console.log(result);
 	return result
 }
 
+whatIsInAName(
+	[
+		{ 'a': 1, 'b': 2 },
+		{ 'a': 1 },
+		{ 'a': 1, 'b': 2, 'c': 2 }
+	],
+	{ 'a': 1, 'c': 2 })
+// [{ 'a': 1, 'b': 2, 'c': 2 }]
+
+// whatIsInAName(
+// 	[
+// 		{ first: 'Romeo', last: 'Montague' },
+// 		{ first: 'Mercutio', last: null },
+// 		{ first: 'Tybalt', last: 'Capulet' }
+// 	], { last: 'Capulet' }
+// );
 // whatIsInAName(
 // 	[
 // 		{ "a": 1, "b": 2 },
@@ -66,34 +71,21 @@ function whatIsInAName(collection, source) {
 // // [{ "a": 1, "b": 2 }, { "a": 1, "b": 2, "c": 2 }].
 
 
-// whatIsInAName(
-// 	[
-// 		{ first: 'Romeo', last: 'Montague' },
-// 		{ first: 'Mercutio', last: null },
-// 		{ first: 'Tybalt', last: 'Capulet' }
-// 	], { last: 'Capulet' }
-// );
+
 // // [{ first: 'Tybalt', last: 'Capulet' }].
 //
 //
-whatIsInAName(
-	[
-		{ 'a': 1 },
-		{ 'a': 1 },
-		{ 'a': 1, 'b': 2 }
-	],
-	{ 'a': 1 }
-);
+// whatIsInAName(
+// 	[
+// 		{ 'a': 1 },
+// 		{ 'a': 1 },
+// 		{ 'a': 1, 'b': 2 }
+// 	],
+// 	{ 'a': 1 }
+// );
 // [{ 'a': 1 }, { 'a': 1 }, { 'a': 1, 'b': 2 }]
 //
 
 
-//
-// whatIsInAName(
-// 	[
-// 		{ 'a': 1, 'b': 2 },
-// 		{ 'a': 1 },
-// 		{ 'a': 1, 'b': 2, 'c': 2 }
-// 	],
-// 	{ 'a': 1, 'c': 2 })
-// // [{ 'a': 1, 'b': 2, 'c': 2 }]
+
+
