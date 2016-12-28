@@ -29,13 +29,15 @@ function whatIsInAName(collection, source) {
 	return result
 }
 
-whatIsInAName(
-	[
-		{ 'a': 1, 'b': 2 },
-		{ 'a': 1 },
-		{ 'a': 1, 'b': 2, 'c': 2 }
-	],
-	{ 'a': 1, 'c': 2 })
+console.log(
+	whatIsInAName(
+		[
+			{ 'a': 1, 'b': 2 },
+			{ 'a': 1 },
+			{ 'a': 1, 'b': 2, 'c': 2 }
+		],
+		{ 'a': 1, 'c': 2 })
+);
 // [{ 'a': 1, 'b': 2, 'c': 2 }]
 
 // whatIsInAName(
